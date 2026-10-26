@@ -1,0 +1,101 @@
+$date
+	Mon Oct 26 07:37:46 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module binarytogray_tb $end
+$var wire 1 ! g3 $end
+$var wire 1 " g2 $end
+$var wire 1 # g1 $end
+$var wire 1 $ g0 $end
+$var reg 1 % b0 $end
+$var reg 1 & b1 $end
+$var reg 1 ' b2 $end
+$var reg 1 ( b3 $end
+$scope module dut $end
+$var wire 1 % b0 $end
+$var wire 1 & b1 $end
+$var wire 1 ' b2 $end
+$var wire 1 ( b3 $end
+$var wire 1 $ g0 $end
+$var wire 1 # g1 $end
+$var wire 1 " g2 $end
+$var wire 1 ! g3 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10
+1$
+1%
+#20
+1#
+0%
+1&
+#30
+0$
+1%
+#40
+1"
+0%
+0&
+1'
+#50
+1$
+1%
+#60
+0#
+0%
+1&
+#70
+0$
+1%
+#80
+1!
+0%
+0&
+0'
+1(
+#90
+1$
+1%
+#100
+1#
+0%
+1&
+#110
+0$
+1%
+#120
+0"
+0%
+0&
+1'
+#130
+1$
+1%
+#140
+0#
+0%
+1&
+#150
+0$
+1%
+#160
