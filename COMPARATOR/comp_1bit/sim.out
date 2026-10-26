@@ -1,0 +1,81 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x607be4aa3610 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x607be4aa37a0 .scope module, "comp_1bit_tb" "comp_1bit_tb" 3 1;
+ .timescale 0 0;
+v0x607be4ab8ae0_0 .var "a", 0 0;
+v0x607be4ab8ba0_0 .var "b", 0 0;
+v0x607be4ab8c40_0 .net "eq", 0 0, L_0x607be4ab9300;  1 drivers
+v0x607be4ab8d10_0 .net "gt", 0 0, L_0x607be4ab8f70;  1 drivers
+v0x607be4ab8de0_0 .net "lt", 0 0, L_0x607be4ab9150;  1 drivers
+S_0x607be4a69500 .scope module, "dut" "comp_1bit" 3 4, 4 1 0, S_0x607be4aa37a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "gt";
+    .port_info 3 /OUTPUT 1 "eq";
+    .port_info 4 /OUTPUT 1 "lt";
+L_0x607be4ab8e80 .functor NOT 1, v0x607be4ab8ba0_0, C4<0>, C4<0>, C4<0>;
+L_0x607be4ab9290 .functor NOT 1, v0x607be4ab8ba0_0, C4<0>, C4<0>, C4<0>;
+v0x607be4a696e0_0 .net *"_ivl_0", 0 0, L_0x607be4ab8e80;  1 drivers
+v0x607be4ab83b0_0 .net *"_ivl_10", 0 0, L_0x607be4ab9290;  1 drivers
+L_0x70439ce60018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x607be4ab8490_0 .net/2u *"_ivl_2", 0 0, L_0x70439ce60018;  1 drivers
+L_0x70439ce60060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x607be4ab8550_0 .net/2u *"_ivl_6", 0 0, L_0x70439ce60060;  1 drivers
+v0x607be4ab8630_0 .net "a", 0 0, v0x607be4ab8ae0_0;  1 drivers
+v0x607be4ab8740_0 .net "b", 0 0, v0x607be4ab8ba0_0;  1 drivers
+v0x607be4ab8800_0 .net "eq", 0 0, L_0x607be4ab9300;  alias, 1 drivers
+v0x607be4ab88c0_0 .net "gt", 0 0, L_0x607be4ab8f70;  alias, 1 drivers
+v0x607be4ab8980_0 .net "lt", 0 0, L_0x607be4ab9150;  alias, 1 drivers
+L_0x607be4ab8f70 .functor MUXZ 1, L_0x70439ce60018, L_0x607be4ab8e80, v0x607be4ab8ae0_0, C4<>;
+L_0x607be4ab9150 .functor MUXZ 1, v0x607be4ab8ba0_0, L_0x70439ce60060, v0x607be4ab8ae0_0, C4<>;
+L_0x607be4ab9300 .functor MUXZ 1, L_0x607be4ab9290, v0x607be4ab8ba0_0, v0x607be4ab8ae0_0, C4<>;
+    .scope S_0x607be4aa37a0;
+T_0 ;
+    %vpi_call/w 3 6 "$dumpfile", "comp_1bit.vcd" {0 0 0};
+    %vpi_call/w 3 7 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x607be4aa37a0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x607be4aa37a0;
+T_1 ;
+    %vpi_call/w 3 10 "$monitor", "a=%d b=%d | gt=%b eq=%b lt=%b", v0x607be4ab8ae0_0, v0x607be4ab8ba0_0, v0x607be4ab8d10_0, v0x607be4ab8c40_0, v0x607be4ab8de0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x607be4ab8ae0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x607be4ab8ba0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x607be4ab8ae0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x607be4ab8ba0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x607be4ab8ae0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x607be4ab8ba0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x607be4ab8ae0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x607be4ab8ba0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call/w 3 15 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "comp_tb.v";
+    "comp.v";
