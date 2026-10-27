@@ -1,0 +1,52 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x63f43388d8d0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x63f43388da60 .scope module, "zd_tb" "zd_tb" 3 1;
+ .timescale 0 0;
+v0x63f43389ed10_0 .var "a", 3 0;
+v0x63f43389ee00_0 .net "y", 0 0, L_0x63f43389ef00;  1 drivers
+S_0x63f433854500 .scope module, "dut" "zd" 3 4, 4 1 0, S_0x63f43388da60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /OUTPUT 1 "y";
+L_0x77ed5d3b7018 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0x63f4338546e0_0 .net/2u *"_ivl_0", 3 0, L_0x77ed5d3b7018;  1 drivers
+v0x63f43389eb30_0 .net "a", 3 0, v0x63f43389ed10_0;  1 drivers
+v0x63f43389ec10_0 .net "y", 0 0, L_0x63f43389ef00;  alias, 1 drivers
+L_0x63f43389ef00 .cmp/eq 4, v0x63f43389ed10_0, L_0x77ed5d3b7018;
+    .scope S_0x63f43388da60;
+T_0 ;
+    %vpi_call/w 3 9 "$dumpfile", "zero_detector.vcd" {0 0 0};
+    %vpi_call/w 3 10 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x63f43388da60;
+T_1 ;
+    %vpi_call/w 3 13 "$monitor", "a=%b|y=%b", v0x63f43389ed10_0, v0x63f43389ee00_0 {0 0 0};
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x63f43389ed10_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v0x63f43389ed10_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x63f43389ed10_0, 0, 4;
+    %delay 10, 0;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "zd_tb.v";
+    "zd.v";

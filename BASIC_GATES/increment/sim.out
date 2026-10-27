@@ -1,0 +1,56 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x6037b1626600 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x6037b1626790 .scope module, "in_tb" "in_tb" 3 1;
+ .timescale 0 0;
+v0x6037b16711c0_0 .var "a", 0 0;
+v0x6037b1671260_0 .net "y", 0 0, L_0x6037b1671610;  1 drivers
+S_0x6037b1660690 .scope module, "dut" "in" 3 5, 4 1 0, S_0x6037b1626790;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "y";
+v0x6037b1660870_0 .net *"_ivl_0", 1 0, L_0x6037b1671330;  1 drivers
+L_0x77c1e3f56018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x6037b1670d10_0 .net *"_ivl_3", 0 0, L_0x77c1e3f56018;  1 drivers
+L_0x77c1e3f56060 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v0x6037b1670df0_0 .net/2u *"_ivl_4", 1 0, L_0x77c1e3f56060;  1 drivers
+v0x6037b1670eb0_0 .net *"_ivl_6", 1 0, L_0x6037b16714a0;  1 drivers
+v0x6037b1670f90_0 .net "a", 0 0, v0x6037b16711c0_0;  1 drivers
+v0x6037b16710a0_0 .net "y", 0 0, L_0x6037b1671610;  alias, 1 drivers
+L_0x6037b1671330 .concat [ 1 1 0 0], v0x6037b16711c0_0, L_0x77c1e3f56018;
+L_0x6037b16714a0 .arith/sum 2, L_0x6037b1671330, L_0x77c1e3f56060;
+L_0x6037b1671610 .part L_0x6037b16714a0, 0, 1;
+    .scope S_0x6037b1626790;
+T_0 ;
+    %vpi_call/w 3 10 "$dumpfile", "incrementer.vcd" {0 0 0};
+    %vpi_call/w 3 11 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x6037b1626790;
+T_1 ;
+    %vpi_call/w 3 14 "$monitor", "a=%b | y=%b", v0x6037b16711c0_0, v0x6037b1671260_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x6037b16711c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x6037b16711c0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 17 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "in_tb.v";
+    "in.v";
