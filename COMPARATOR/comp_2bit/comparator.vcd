@@ -1,0 +1,46 @@
+$date
+	Tue Oct 27 09:04:29 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module comparator_tb $end
+$var wire 1 ! y $end
+$var reg 2 " a [1:0] $end
+$var reg 2 # b [1:0] $end
+$scope module dut $end
+$var wire 2 $ a [1:0] $end
+$var wire 2 % b [1:0] $end
+$var wire 1 ! y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+b0 $
+b0 #
+b0 "
+1!
+$end
+#1
+0!
+b1 #
+b1 %
+#2
+b0 #
+b0 %
+0!
+b1 "
+b1 $
+#3
+1!
+b1 #
+b1 %
+#4
