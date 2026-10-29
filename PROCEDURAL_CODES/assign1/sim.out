@@ -1,0 +1,32 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x5b5a5088a630 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x5b5a5088a7e0 .scope module, "assign1" "assign1" 3 1;
+ .timescale 0 0;
+v0x5b5a508b0280_0 .var "a", 3 0;
+v0x5b5a508d18a0_0 .var "b", 3 0;
+    .scope S_0x5b5a5088a7e0;
+T_0 ;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x5b5a508b0280_0, 0, 4;
+    %vpi_call/w 3 5 "$display", "a=%0d", v0x5b5a508b0280_0 {0 0 0};
+    %load/vec4 v0x5b5a508b0280_0;
+    %store/vec4 v0x5b5a508d18a0_0, 0, 4;
+    %vpi_call/w 3 7 "$display", "b=%0d", v0x5b5a508d18a0_0 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "assign1.v";
