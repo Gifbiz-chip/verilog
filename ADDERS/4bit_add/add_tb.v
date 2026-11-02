@@ -2,7 +2,7 @@ module tb_adder4;
     reg [3:0] A, B;
     wire [3:0] sum;
     wire cout;
-    add_4bit uut(A, B, sum, cout);
+    add_4bit uut(.A(A), .B(B), .sum(sum), .cout(cout));
     initial begin
         $dumpfile("adder.vcd");
         $dumpvars();
