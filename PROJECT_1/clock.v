@@ -1,21 +1,23 @@
 module clock(
     input clk,
-    input rst,
-    output sec,
-    output min
+    output reg sec,
+    output  reg min
 );
 initial begin
     sec = 0;
     min = 0;
 end
 always @ (posedge clk) begin
-    if(rst ) begin
+    if( sec == 59)
+    begin
         sec <= 0;
-        min <= 0;
+        if( min == 59)
+            min <= 0 ;
+        else 
+            min = min + 1 ;
     end
-    else if(sec<== 59)
-        sec <= sec+1 ;
-    else if(sec == 59 && m
+    else    
+        sec = sec + 1 ;
 end
 endmodule
     
