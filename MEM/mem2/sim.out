@@ -1,0 +1,63 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x558d758dd5a0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x558d758dd730 .scope module, "read_write" "read_write" 3 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "en";
+    .port_info 2 /INPUT 4 "radd";
+    .port_info 3 /INPUT 4 "wadd";
+    .port_info 4 /INPUT 8 "din";
+    .port_info 5 /OUTPUT 8 "dout";
+P_0x558d75902960 .param/l "ADDR_WIDTH" 0 3 1, +C4<00000000000000000000000000000100>;
+P_0x558d759029a0 .param/l "DATA_WIDTH" 0 3 1, +C4<00000000000000000000000000001000>;
+o0x751672bcf018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x558d75904620_0 .net "clk", 0 0, o0x751672bcf018;  0 drivers
+o0x751672bcf048 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x558d759277a0_0 .net "din", 7 0, o0x751672bcf048;  0 drivers
+v0x558d75927880_0 .var "dout", 7 0;
+o0x751672bcf0a8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x558d75927970_0 .net "en", 0 0, o0x751672bcf0a8;  0 drivers
+v0x558d75927a30 .array "mem", 8 0, 7 0;
+o0x751672bcf0d8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0x558d75927b40_0 .net "radd", 3 0, o0x751672bcf0d8;  0 drivers
+o0x751672bcf108 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0x558d75927c20_0 .net "wadd", 3 0, o0x751672bcf108;  0 drivers
+E_0x558d75916cd0 .event posedge, v0x558d75904620_0;
+    .scope S_0x558d758dd730;
+T_0 ;
+    %wait E_0x558d75916cd0;
+    %load/vec4 v0x558d75927970_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %load/vec4 v0x558d759277a0_0;
+    %load/vec4 v0x558d75927c20_0;
+    %pad/u 5;
+    %ix/vec4 3;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0x558d75927a30, 0, 4;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x558d75927b40_0;
+    %pad/u 5;
+    %ix/vec4 4;
+    %load/vec4a v0x558d75927a30, 4;
+    %assign/vec4 v0x558d75927880_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "mem.v";
